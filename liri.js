@@ -98,5 +98,34 @@ function movieThis() {
 };
 
 function doWhatSays() {
-// fs, data split
+
+    fs.readFile("random.txt", "utf8", function(err, data) {
+        
+        if (err) {
+          return console.log(err);
+        }
+    
+        var output = data.split(",");
+        var whatSays = output[1];
+
+            var songName = whatSays;
+        
+            spotifyClient.search({ type: 'track', query: songName }, function(err, data) {
+                if (err) {
+                return console.log('Error occurred: ' + err);
+                }
+        
+                var data = data.tracks.items[0];
+                    
+                    console.log("----------");
+                    console.log("Artist's Name: " + data.artists[0].name);
+                    console.log("Song Name: " + data.name);
+                    console.log("Preview URL: " + data.preview_url);
+                    console.log("Album Name: " + data.album.name);
+                    console.log("----------");
+ 
+            });
+
+    });
+      
 };
