@@ -27,7 +27,7 @@ switch (action) {
     case "do-what-it-says":
       doWhatSays();
       break;
-  }
+  };
 
 function myTweets() {
    
@@ -36,10 +36,10 @@ function myTweets() {
         if (!error) {
 
             for (i = 0; i < 19 && tweets.length; i++) {
-                console.log("-------------")
+                console.log("-------------");
                 console.log(tweets[i].created_at);
                 console.log(tweets[i].text);
-            }
+            };
         }
     });
 };
@@ -123,9 +123,9 @@ function doWhatSays() {
                     console.log("Preview URL: " + data.preview_url);
                     console.log("Album Name: " + data.album.name);
                     console.log("----------");
- 
+        
             });
 
-    });
-      
-};
+        });
+
+      };
